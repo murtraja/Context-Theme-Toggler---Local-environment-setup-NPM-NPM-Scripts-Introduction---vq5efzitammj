@@ -4,6 +4,7 @@ import { ThemeContext } from "./ThemeProvider";
 const LocalThemedBox = () => {
   const [theme, toggleTheme] = useContext(ThemeContext);
   const [localTheme, setLocalTheme] = useState(theme);
+  const localThemeC = localTheme === "light" ? "dark" : "light";
   const themer = (className) => className + "-" + localTheme;
   const themerList = (classList) => classList.map(themer).join(" ");
 
@@ -27,7 +28,7 @@ const LocalThemedBox = () => {
         className={"btn " + themerList(["btn", "txt"])}
         id="local-theme-toggler"
       >
-        Toggle local theme
+        Toggle local theme to {localThemeC}
       </button>
     </div>
   );

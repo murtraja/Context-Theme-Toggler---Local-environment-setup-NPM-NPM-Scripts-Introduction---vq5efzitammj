@@ -3,7 +3,7 @@ import { ThemeContext } from "./ThemeProvider";
 
 const ThemeToggleButton = () => {
   const [theme, toggleTheme] = useContext(ThemeContext);
-
+  const themeC = theme === "light" ? "dark" : "light";
   const themer = (className) => className + "-" + theme;
   const themerList = (classList) => classList.map(themer).join(" ");
 
@@ -14,7 +14,7 @@ const ThemeToggleButton = () => {
         className={"btn " + themerList(["btn", "txt"])}
         id="global-theme-toggler"
       >
-        Toggle global theme
+        Switch to {themeC} theme
       </button>
     </>
   );
